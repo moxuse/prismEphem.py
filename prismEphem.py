@@ -35,7 +35,12 @@ for line in src:
 
 #ephem convert
 iss = ephem.readtle(line1, line2, line3)
-iss.compute('2011/10/14 10:01')
+
+timeNow = datetime.datetime.now().strftime("%Y/%m/%d %H:%M")
+
+print timeNow
+
+iss.compute( timeNow )
 
 sublong = six2ten(str(iss.sublong))
 sublat = six2ten(str(iss.sublat))
