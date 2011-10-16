@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
-
 import sys
 import datetime
 import pytz
@@ -8,7 +7,6 @@ import urllib2
 import chardet
 import re
 import ephem
-
 
 def six2ten(six):
     ten = six.split(':')
