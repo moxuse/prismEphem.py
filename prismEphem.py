@@ -1,10 +1,8 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
-import sys
 import datetime
 import pytz
 import urllib2
-import chardet
 import re
 import ephem
 
@@ -35,20 +33,20 @@ for line in src:
     count+=1
 
 #timezone pref use UTC now
-timeLondon =  datetime.datetime.utcnow()
+utcTime =  datetime.datetime.utcnow()
 
-iss = ephem.readtle(line1, line2, line3)
+sat = ephem.readtle(line1, line2, line3)
 
-timeNow = timeLondon.strftime("%Y/%m/%d %H:%M:%S") #we concern in seconds
+timeNow = utcTime.strftime("%Y/%m/%d %H:%M:%S") #we concern in seconds
 
 print timeNow
 
-iss.compute( timeNow )
+sat.compute( timeNow )
 
-sublong = six2ten(str(iss.sublong))
-sublat = six2ten(str(iss.sublat))
-elevation = iss.elevation
+longtitude = six2ten(str(sat.sublong))
+latitude = six2ten(str(sat.sublat))
+elevation = sat.elevation
 
-print sublong
-print sublat
+print longtitude
+print latitude
 print elevation
