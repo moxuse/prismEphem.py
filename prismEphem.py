@@ -16,10 +16,10 @@ def six2ten(six):
     if t0>=0:
         return t0 + t1 + t2
     if t0<0:
-        return t0 - t1 - t2
+        return -t0 - t1 - t2
     
 #fetch NORAD site
-url = 'http://www.amsat.org/amsat/ftp/keps/current/nasa.all'
+url = 'http://celestrak.com/NORAD/elements/amateur.txt'
 htmlOpener = urllib2.urlopen(url)
 if(htmlOpener.code != 200): exit(0)
 src = htmlOpener.read().splitlines()
@@ -34,18 +34,12 @@ for line in src:
         print line3
     count+=1
 
-#timezone pref
-bst = pytz.timezone('Europe/London')
-timeLondon =  datetime.datetime.now(bst)
-
-#ephem convert
-# obs = ephem.Observer()
-# 
-# obs.date = timeLondon.strftime("%Y/%m/%d")
+#timezone pref use UTC now
+timeLondon =  datetime.datetime.utcnow()
 
 iss = ephem.readtle(line1, line2, line3)
 
-timeNow = timeLondon.strftime("%Y/%m/%d %H:%M")
+timeNow = timeLondon.strftime("%Y/%m/%d %H:%M:%S") #we concern in seconds
 
 print timeNow
 
