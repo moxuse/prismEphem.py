@@ -16,7 +16,7 @@ def six2ten(six):
     if t0>=0:
         return t0 + t1 + t2
     if t0<0:
-        return -t0 - t1 - t2
+        return -(t0 - t1 - t2)
     
 #fetch NORAD site
 url = 'http://celestrak.com/NORAD/elements/amateur.txt'
