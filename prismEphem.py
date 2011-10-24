@@ -70,7 +70,7 @@ utcTime =  datetime.datetime.utcnow()
 
 sat = ephem.readtle(line1, line2, line3)
 
-timeNow = utcTime.strftime("%Y/%m/%d %H:%M:%S") #we concern in seconds
+timeNow = utcTime.strftime("%Y/%m/%d %H:%M") #we don't concern in seconds
 
 #print timeNow
 
